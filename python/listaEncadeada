@@ -1,0 +1,44 @@
+class No:
+    def __init__(self, valor):
+        self.valor = valor
+        self.next = None
+
+
+class ListaEncadeada:
+    def __init__(self):
+        self.inicio = None  # guarda o primeiro nó, ou None se a lista estiver vazia
+        
+    def adicionar(self, valor):
+        novo_no = No(valor)
+        atual = self.inicio
+
+        if(atual is None):
+            self.inicio = novo_no
+
+        else:
+            while(atual.next is not None):
+                atual = atual.next
+            atual.next = novo_no
+        # TODO 1: se a lista estiver vazia (self.inicio é None), 
+        #         novo_no vira o início da lista
+        # TODO 2: se não estiver vazia, ande com um cursor até 
+        #         o último nó (aquele cujo .next é None), 
+        #         e conecte o novo_no nele
+
+    def imprimir(self):
+        atual = self.inicio
+
+        while atual is not None:
+            print(f"o valor atual do nó é: {atual.valor}")
+            atual = atual.next
+        # TODO 3: ande com um cursor do início até o fim,
+        #         imprimindo o .valor de cada nó
+
+
+lista = ListaEncadeada()
+
+lista.adicionar(10)
+lista.adicionar(20)
+lista.adicionar(30)
+
+lista.imprimir()
